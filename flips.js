@@ -1,13 +1,18 @@
 import { coinFlips, countFlips } from "./modules/coin.mjs";
-const myArgs = process.argv.slice(2);
-let number;
-for (let i = 0; i < myArgs[0].length; i++) {
-    number = myArgs[0].slice(9,11);
+import minimist from "minimist";
+
+const myArgs = minimist(process.argv.slice(2));
+myArgs["num"];
+
+const num = myArgs.num || 1;
+var list = [];
+
+let i = 0;
+
+while (i < num) {
+    list.push(coinFlips(1));
+    i++;
 }
-if (process.argv.length < 2) {
-    console.log(coinFlips(1));
-    console.log(countFlips(coinFlips(1)));
-    process.exit(1);
-}
-console.log(coinFlips(number));
-console.log(countFlips(coinFlips(number)));
+
+console.log(list);
+console.log(countFlips(list));
