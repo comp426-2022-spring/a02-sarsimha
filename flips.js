@@ -7,6 +7,7 @@ myArgs["number"];
 const number = myArgs.number || 1;
 var list = [];
 
+console.log(coinFlips(num));
 list = coinFlips(number);
 console.log(list);
 console.log(countFlips(list));
